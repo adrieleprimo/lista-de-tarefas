@@ -18,11 +18,9 @@ const cadastrarUsuario = async(req, res)=>{
             email,
             senha: senhaCriptografada
         }).returning('*');
-
         const {senha:_, ...novoUsuario} = usuario[0];
         return res.status(201).json(novoUsuario);
     }catch(error){
-        console.log(error)
         return res.status(500).json({mensagem: 'Erro interno no servidor.'});
     }
 }

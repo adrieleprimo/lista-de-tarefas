@@ -12,11 +12,12 @@ const verificarUsuarioLogado = async (req, res, next)=>{
     const token = authorization.split(' ')[1];
 
     try{
-         const {id} = jwt.veriffy(token, senhaJwt);
+         const {id} = jwt.verify(token, senhaJwt);
          const usuarioExiste = await knex('usuarios').where({id}).first();
          if(!usuarioExiste){
             return res.status(404).json({mensagem: 'Usuario não encontrado'});
          }
+         next();
     }catch(error){
         if(error instanceof jwt.JsonWebTokenError){
             return res.status(401).json({mensagem: 'Para acessar este recurso um token de autenticação válido deve ser enviado.'});

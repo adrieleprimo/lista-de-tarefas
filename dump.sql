@@ -11,3 +11,5 @@ CREATE TABLE usuarios(
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(100) NOT NULL
   );
+
+  ALTER TABLE tarefas ALTER data_conclusao TYPE TEXT;

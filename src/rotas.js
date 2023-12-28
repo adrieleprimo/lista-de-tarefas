@@ -6,6 +6,7 @@ const loginSchema = require('./validacoes/login');
 const verificarUsuarioLogado = require('./intermediarios/autenticacao');
 const cadastrarTarefa = require('./controladores/cadastrarTarefas');
 const tarefaSchema = require('./validacoes/tarefas');
+const visualizarTarefas = require('./controladores/visualizarTarefas');
 const rotas = express();
 
 rotas.post('/usuario', validarRequisicao(usuarioSchema), cadastrarUsuario);
@@ -14,5 +15,5 @@ rotas.post('/login', validarRequisicao(loginSchema),loginUsuario);
 rotas.use(verificarUsuarioLogado);
 
 rotas.post('/tarefa', validarRequisicao(tarefaSchema), cadastrarTarefa);
-
+rotas.get('/tarefa', visualizarTarefas);
 module.exports = rotas;

@@ -17,6 +17,8 @@ const verificarUsuarioLogado = async (req, res, next)=>{
          if(!usuarioExiste){
             return res.status(404).json({mensagem: 'Usuario não encontrado'});
          }
+         const {senha, ...usuario} = usuarioExiste;
+         req.usuario = usuario;
          next();
     }catch(error){
         if(error instanceof jwt.JsonWebTokenError){

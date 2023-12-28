@@ -8,6 +8,7 @@ const cadastrarTarefa = require('./controladores/cadastrarTarefas');
 const tarefaSchema = require('./validacoes/tarefas');
 const visualizarTarefas = require('./controladores/visualizarTarefas');
 const atualizarTarefa = require('./controladores/atualizarTarefas');
+const excluirTarefa = require('./controladores/excluirTarefas');
 const rotas = express();
 
 rotas.post('/usuario', validarRequisicao(usuarioSchema), cadastrarUsuario);
@@ -18,4 +19,5 @@ rotas.use(verificarUsuarioLogado);
 rotas.post('/tarefa', validarRequisicao(tarefaSchema), cadastrarTarefa);
 rotas.get('/tarefa', visualizarTarefas);
 rotas.put('/tarefa/:id', validarRequisicao(tarefaSchema), atualizarTarefa);
+rotas.delete('/tarefa/:id', excluirTarefa);
 module.exports = rotas;

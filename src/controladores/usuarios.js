@@ -47,11 +47,9 @@ const loginUsuario = async (req, res)=>{
             usuario: usuarioLogado,
             token
         });
-
     }catch(error){
         return res.status(500).json({mensagem: 'Erro interno no servidor.'});
     }
-
 }
 
 module.exports = {cadastrarUsuario, loginUsuario}

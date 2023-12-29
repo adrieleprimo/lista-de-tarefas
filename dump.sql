@@ -13,3 +13,5 @@ CREATE TABLE usuarios(
   );
 
   ALTER TABLE tarefas ALTER data_conclusao TYPE TEXT;
+  ALTER TABLE tarefas ADD COLUMN concluido VARCHAR(3);
+

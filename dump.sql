@@ -14,4 +14,5 @@ CREATE TABLE usuarios(
 
   ALTER TABLE tarefas ALTER data_conclusao TYPE TEXT;
   ALTER TABLE tarefas ADD COLUMN concluido VARCHAR(3);
-
+ALTER TABLE tarefas DROP COLUMN concluido;
+ALTER TABLE tarefas ADD COLUMN concluido BOOLEAN;

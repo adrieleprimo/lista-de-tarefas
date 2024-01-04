@@ -15,8 +15,8 @@ const tarefaSchema = joi.object({
         'any.required': 'O campo usuario_id é obrigatório.',
         'number.empty': 'O campo usuario_id é obrigatório.'
     }),
-    concluido: joi.string().trim().empty('').default('').messages({
-        'string.base': 'O campo concluido deve ser do tipo string.',
+    concluido: joi.boolean().default(false).messages({
+        'boolean.base': 'O campo concluido deve ser do tipo boolean.',
     })
 })
 

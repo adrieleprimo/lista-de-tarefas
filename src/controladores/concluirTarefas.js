@@ -16,7 +16,7 @@ const concluirTarefa = async (req, res)=>{
             return res.status(400).json({mensagem: 'Tarefa já concluída'});
         }
         await knex('tarefas').where({id}).update({
-            concluido: 'sim'
+            concluido: true
         });
 
         const tarefaAtualizada = await knex('tarefas').where({id}).first();
